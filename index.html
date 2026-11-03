@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skyline · Cronógrafo</title>
+<meta name="description" content="Cronógrafo Skyline: caja metálica pulida, bisel deportivo y esfera satinada. Seis modelos.">
+<meta property="og:title" content="Skyline · Precisión en cada momento">
+<meta property="og:image" content="assets/escena1.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#0f0e0c}
+a{color:#c9b48a}a:hover{color:#e3d3ad}
+html{scroll-behavior:smooth}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(56px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:scale(1.14) translateY(-3%)}to{transform:scale(1.02) translateY(3%)}}
+@keyframes cue{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(8px);opacity:1}}
+@keyframes sheen{from{transform:translateX(-120%) skewX(-18deg)}to{transform:translateX(220%) skewX(-18deg)}}
+.sk-hero-img{animation:kb 16s cubic-bezier(.2,.6,.2,1) both}
+.sk-in{animation:fadeUp 1.1s cubic-bezier(.2,.7,.2,1) both}
+.sk-d1{animation-delay:.25s}.sk-d2{animation-delay:.45s}.sk-d3{animation-delay:.65s}.sk-d4{animation-delay:.85s}
+.sk-cue{animation:cue 2.2s ease-in-out infinite}
+.sk-btn{transition:background-color .35s ease,color .35s ease,transform .35s ease,border-color .35s ease}
+.sk-btn:hover{transform:translateY(-2px)}
+.sk-gold:hover{background-color:#e3d3ad !important}
+.sk-ghost:hover{border-color:#c9b48a !important;color:#ffffff !important}
+.sk-zoom{overflow:hidden}
+.sk-zoom img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.sk-zoom:hover img{transform:scale(1.06)}
+.sk-thumb{transition:transform .35s ease,border-color .35s ease,background-color .35s ease}
+.sk-thumb:hover{transform:translateY(-4px)}
+.sk-model{transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1),filter .7s ease}
+.sk-sheen{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sk-sheen::after{content:"";position:absolute;top:0;bottom:0;width:30%;background:linear-gradient(90deg,transparent,rgba(255,244,220,.14),transparent);animation:sheen 4.5s ease-in-out infinite}
+.sk-link{transition:color .3s ease}
+@supports (animation-timeline: view()){
+.sk-reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+.sk-par img{animation:drift linear both;animation-timeline:view()}
+}
+@media (prefers-reduced-motion: reduce){
+*{animation:none !important;transition:none !important}
+}
+
+.sk-model{position:absolute;left:50%;top:50%;height:92%;width:auto;opacity:0;filter:blur(6px);transform:translate(-50%,-50%) scale(.9) rotate(6deg) translateX(40px)}
+.sk-model.is-before{transform:translate(-50%,-50%) scale(.9) rotate(-6deg) translateX(-40px)}
+.sk-model.is-on{opacity:1;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55));transform:translate(-50%,-50%) scale(1) rotate(0)}
+.sk-thumb{cursor:pointer;padding:12px 8px 10px;border-radius:8px;min-height:44px;border:1px solid rgba(242,236,224,.14);background-color:rgba(255,255,255,.02)}
+.sk-thumb.is-on{border-color:#c9b48a;background-color:rgba(201,180,138,.12)}
+.sk-swap{transition:opacity .35s ease}
+
+section[id]{scroll-margin-top:84px}
+@media (max-width: 720px){
+.sk-link{display:none}
+#inicio > div[aria-hidden="true"]{background:linear-gradient(0deg, rgba(10,9,7,0.96) 0%, rgba(10,9,7,0.82) 45%, rgba(10,9,7,0.25) 80%) !important}
+#inicio img.sk-hero-img{object-position:70% 30% !important}
+}
+.sk-thumb:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #c9b48a;outline-offset:3px}
+</style>
+
+</head>
+<body>
+
+<div style="min-height: 100vh; background: #0f0e0c; color: #f2ece0; font-family: Inter, system-ui, sans-serif; font-size: 17px; line-height: 1.6">
+
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(15,14,12,0.78); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,180,138,0.16)">
+<nav aria-label="Principal" style="max-width: 1280px; margin: 0 auto; padding: 16px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#inicio" style="color: #f2ece0; text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; letter-spacing: 0.28em">SKYLINE</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase">
+<a class="sk-link" href="#detalles" style="color: #cfc6b4; text-decoration: none">Detalles</a>
+<a class="sk-link" href="#coleccion" style="color: #cfc6b4; text-decoration: none">Colección</a>
+<a class="sk-link" href="#de-cerca" style="color: #cfc6b4; text-decoration: none">De cerca</a>
+<a class="sk-link" href="#spot" style="color: #cfc6b4; text-decoration: none">El spot</a>
+<a class="sk-btn sk-gold" href="#coleccion" style="background-color: #c9b48a; color: #15130f; text-decoration: none; padding: 12px 22px; border-radius: 999px; font-weight: 600; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Comprar</a>
+</div>
+</nav>
+</header>
+
+<section id="inicio" style="position: relative; height: 92vh; min-height: 620px; overflow: hidden; display: flex; align-items: flex-end">
+<img class="sk-hero-img" src="assets/escena1.jpg" alt="Reloj Skyline sobre una mesa de madera en un despacho iluminado con luz cálida" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,9,7,0.92) 0%, rgba(10,9,7,0.55) 42%, rgba(10,9,7,0.05) 75%), linear-gradient(0deg, rgba(10,9,7,0.85) 0%, rgba(10,9,7,0) 40%)"></div>
+<div style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px 96px; box-sizing: border-box">
+<p class="sk-in" style="margin: 0 0 18px; color: #c9b48a; font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">Cronógrafo Skyline</p>
+<h1 class="sk-in sk-d1" style="margin: 0; max-width: 760px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(52px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.01em">Precisión en cada momento</h1>
+<p class="sk-in sk-d2" style="margin: 28px 0 0; max-width: 520px; color: #d9d1c1; font-size: 19px">Caja metálica pulida, bisel deportivo y una esfera satinada que cambia con la luz. Seis versiones para seis maneras de llevar el tiempo.</p>
+<div class="sk-in sk-d3" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px">
+<a class="sk-btn sk-gold" href="#coleccion" style="background-color: #c9b48a; color: #15130f; text-decoration: none; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 16px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Ver la colección</a>
+<a class="sk-btn sk-ghost" href="#spot" style="border: 1px solid rgba(242,236,224,0.4); color: #f2ece0; text-decoration: none; padding: 16px 30px; border-radius: 999px; font-weight: 500; font-size: 16px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 1.8v10.4L12 7z"></path></svg>Ver el spot</a>
+</div>
+</div>
+<div class="sk-cue" aria-hidden="true" style="position: absolute; left: 50%; bottom: 28px; width: 1px; height: 44px; background: linear-gradient(#c9b48a, transparent)"></div>
+</section>
+
+<section id="detalles" style="max-width: 1280px; margin: 0 auto; padding: 140px 32px 60px; box-sizing: border-box">
+<div class="sk-reveal" style="max-width: 720px; margin-bottom: 96px">
+<p style="margin: 0 0 14px; color: #c9b48a; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">Los detalles</p>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.04">Cada pieza tiene su razón de ser</h2>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 64px; margin-bottom: 140px">
+<div class="sk-zoom sk-par sk-reveal" style="flex: 1 1 520px; min-width: 0; border-radius: 6px; aspect-ratio: 4 / 3; position: relative">
+<img src="assets/escena2.jpg" alt="Bisel negro y caja plateada del Skyline con la corona" style="width: 100%; height: 100%; object-fit: cover; object-position: 45% 50%; display: block">
+</div>
+<div class="sk-reveal" style="flex: 1 1 360px; min-width: 0">
+<p style="margin: 0 0 12px; color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 30px">01</p>
+<h3 style="margin: 0 0 18px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 42px; line-height: 1.1">Bisel y caja</h3>
+<p style="margin: 0; color: #cfc6b4">Un bisel deportivo negro con índices grabados en blanco —15, 25, 35, 45 y 55— para una lectura ultrarrápida. Debajo, una caja metálica sólida con acabado plateado pulido que atrapa la luz desde cualquier ángulo.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 64px; margin-bottom: 140px">
+<div class="sk-reveal" style="flex: 1 1 360px; min-width: 0">
+<p style="margin: 0 0 12px; color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 30px">02</p>
+<h3 style="margin: 0 0 18px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 42px; line-height: 1.1">La esfera</h3>
+<p style="margin: 0; color: #cfc6b4">Satinada, con un reflejo radial que se mueve con la luz. Tres subesferas de cronógrafo, ventana de fecha y agujas tipo espada con tratamiento luminiscente para leer la hora también de noche.</p>
+</div>
+<div class="sk-zoom sk-par sk-reveal" style="flex: 1 1 520px; min-width: 0; border-radius: 6px; aspect-ratio: 4 / 3; position: relative">
+<img src="assets/escena3.jpg" alt="Primer plano de la esfera verde satinada con tres subesferas" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div class="sk-reveal" style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+<div class="sk-zoom" style="border-radius: 6px; aspect-ratio: 3 / 4"><img src="assets/escena4.jpg" alt="Correa negra con pespunte en contraste sobre la mesa" style="width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; display: block"></div>
+<div class="sk-zoom" style="border-radius: 6px; aspect-ratio: 3 / 4; margin-top: 48px"><img src="assets/escena5.jpg" alt="Forro beige del interior de la correa" style="width: 100%; height: 100%; object-fit: cover; object-position: 65% 50%; display: block"></div>
+</div>
+<div class="sk-reveal" style="flex: 1 1 360px; min-width: 0">
+<p style="margin: 0 0 12px; color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 30px">03</p>
+<h3 style="margin: 0 0 18px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 42px; line-height: 1.1">Correa y confort</h3>
+<p style="margin: 0; color: #cfc6b4">Correa con pespunte en contraste y, por dentro, un forro beige suave y transpirable. Pensada para llevarla horas sin notarla en la muñeca.</p>
+</div>
+</div>
+</section>
+
+<section id="coleccion" style="background: radial-gradient(ellipse at 30% 40%, #22201a 0%, #0f0e0c 62%); padding: 140px 0; margin-top: 80px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box">
+<div class="sk-reveal" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 64px">
+<div style="max-width: 640px">
+<p style="margin: 0 0 14px; color: #c9b48a; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">La colección</p>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.04">Elige tu Skyline</h2>
+</div>
+<p style="margin: 0; max-width: 380px; color: #b9b09e">La misma caja y el mismo bisel. Seis esferas y dos correas para que encuentres el tuyo.</p>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 480px; min-width: 0; position: relative; height: 640px; border-radius: 8px; background: radial-gradient(circle at 50% 45%, #2b2820 0%, #17150f 55%, #0f0e0c 100%); overflow: hidden">
+<div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 420px; height: 420px; margin: -210px 0 0 -210px; border-radius: 50%; background: radial-gradient(circle, rgba(201,180,138,0.18), rgba(201,180,138,0) 70%)"></div>
+<img class="sk-model is-on" data-i="0" src="assets/modelo_verde.webp" alt="Reloj Skyline Verde Militar"><img class="sk-model" data-i="1" src="assets/modelo_azul.webp" alt="Reloj Skyline Azul Medianoche"><img class="sk-model" data-i="2" src="assets/modelo_negro.webp" alt="Reloj Skyline Negro Absoluto"><img class="sk-model" data-i="3" src="assets/modelo_burdeos.webp" alt="Reloj Skyline Burdeos"><img class="sk-model" data-i="4" src="assets/modelo_vintage.webp" alt="Reloj Skyline Champán Vintage"><img class="sk-model" data-i="5" src="assets/modelo_acero.webp" alt="Reloj Skyline Gris Acero">
+<div class="sk-sheen" aria-hidden="true"></div>
+</div>
+
+<div style="flex: 1 1 400px; min-width: 0">
+<p style="margin: 0 0 10px; color: #c9b48a; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 600">Modelo <span id="m-num">1</span> de 6</p>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 56px; line-height: 1.05"><span id="m-name">Verde Militar</span></h3>
+<p style="margin: 14px 0 28px; color: #cfc6b4; font-size: 18px; min-height: 58px"><span id="m-tag">El original. Sobrio, versátil y con carácter.</span></p>
+<dl style="margin: 0 0 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; border-top: 1px solid rgba(201,180,138,0.2); padding-top: 24px">
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Esfera</dt><dd style="margin: 4px 0 0; font-size: 17px"><span id="m-dial">Verde militar satinada</span></dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Correa</dt><dd style="margin: 4px 0 0; font-size: 17px"><span id="m-strap">Negra, forro beige</span></dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Caja</dt><dd style="margin: 4px 0 0; font-size: 17px">Metálica, plateado pulido</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Precio</dt><dd style="margin: 4px 0 0; font-size: 17px">[PRECIO]</dd></div>
+</dl>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px">
+<button type="button" class="sk-btn sk-gold" id="m-cart" style="background-color: #c9b48a; color: #15130f; border: 0; padding: 16px 30px; border-radius: 999px; font: 600 16px Inter, system-ui, sans-serif; min-height: 52px; cursor: pointer">Añadir a la cesta</button>
+<a class="sk-btn sk-ghost" href="#especificaciones" style="border: 1px solid rgba(242,236,224,0.35); color: #f2ece0; text-decoration: none; padding: 16px 26px; border-radius: 999px; font-size: 16px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Especificaciones</a>
+</div>
+<div role="group" aria-label="Elegir modelo" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px">
+<button type="button" class="sk-thumb is-on" data-i="0" aria-pressed="true" aria-label="Verde Militar"><img src="assets/modelo_verde.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Verde Militar</span></button><button type="button" class="sk-thumb" data-i="1" aria-pressed="false" aria-label="Azul Medianoche"><img src="assets/modelo_azul.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Azul Medianoche</span></button><button type="button" class="sk-thumb" data-i="2" aria-pressed="false" aria-label="Negro Absoluto"><img src="assets/modelo_negro.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Negro Absoluto</span></button><button type="button" class="sk-thumb" data-i="3" aria-pressed="false" aria-label="Burdeos"><img src="assets/modelo_burdeos.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Burdeos</span></button><button type="button" class="sk-thumb" data-i="4" aria-pressed="false" aria-label="Champán Vintage"><img src="assets/modelo_vintage.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Champán Vintage</span></button><button type="button" class="sk-thumb" data-i="5" aria-pressed="false" aria-label="Gris Acero"><img src="assets/modelo_acero.webp" alt="" style="width: 100%; height: 92px; object-fit: contain; display: block"><span style="display: block; margin-top: 8px; font: 500 13px Inter, system-ui, sans-serif; color: #e8e1d2">Gris Acero</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-label="En la muñeca" class="sk-zoom sk-par" style="position: relative; height: 78vh; min-height: 520px; display: flex; align-items: center">
+<img src="assets/escena6.jpg" alt="Hombre con traje ajustándose el reloj Skyline en la muñeca" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,9,7,0.88) 0%, rgba(10,9,7,0.4) 45%, rgba(10,9,7,0) 70%)"></div>
+<div class="sk-reveal" style="position: relative; width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box">
+<h2 style="margin: 0; max-width: 560px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 5vw, 72px); line-height: 1.02">De la oficina a donde tú quieras</h2>
+<p style="margin: 22px 0 0; max-width: 440px; color: #d9d1c1">Elegante con traje, natural con camiseta. Un reloj para todos los días que no pasa desapercibido.</p>
+</div>
+</section>
+
+<section id="anatomia" style="max-width: 1280px; margin: 0 auto; padding: 140px 32px; box-sizing: border-box">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div class="sk-reveal" style="flex: 1 1 340px; min-width: 0">
+<p style="margin: 0 0 14px; color: #c9b48a; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">Por dentro</p>
+<h2 style="margin: 0 0 20px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 60px); line-height: 1.04">Anatomía del Skyline</h2>
+<p style="margin: 0 0 28px; color: #cfc6b4">Cinco capas montadas con precisión: fondo de caja, caja metálica con la correa, esfera con sus tres subesferas y la fecha, cristal y bisel.</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; color: #e8e1d2">
+<li style="display: flex; gap: 14px; align-items: baseline"><span style="color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 22px">i</span>Bisel negro con índices 15–55</li>
+<li style="display: flex; gap: 14px; align-items: baseline"><span style="color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 22px">ii</span>Cristal</li>
+<li style="display: flex; gap: 14px; align-items: baseline"><span style="color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 22px">iii</span>Esfera, subesferas y fecha</li>
+<li style="display: flex; gap: 14px; align-items: baseline"><span style="color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 22px">iv</span>Caja metálica y correa</li>
+<li style="display: flex; gap: 14px; align-items: baseline"><span style="color: #c9b48a; font-family: 'Cormorant Garamond', serif; font-size: 22px">v</span>Fondo de caja</li>
+</ol>
+</div>
+<div class="sk-reveal" style="flex: 1 1 620px; min-width: 0; border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 9">
+<img src="assets/anatomia.jpg" alt="Vista despiezada del reloj Skyline con sus capas separadas" style="width: 100%; height: 100%; object-fit: cover; display: block">
+</div>
+</div>
+</section>
+
+<section id="de-cerca" style="background: #14120e; padding: 140px 0">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box">
+<div class="sk-reveal" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 56px">
+<div>
+<p style="margin: 0 0 14px; color: #c9b48a; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">De cerca</p>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 60px); line-height: 1.04">Tal cual es</h2>
+</div>
+<p style="margin: 0; max-width: 400px; color: #b9b09e">Fotografías del reloj real, sin estudio ni retoque, para que lo veas como lo vas a tener en la mano.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<figure class="sk-zoom sk-reveal" style="margin: 0; border-radius: 6px; position: relative; aspect-ratio: 4 / 5"><img src="assets/real_3cuartos.jpg" alt="Foto real del Skyline en tres cuartos" style="width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.8)">Tres cuartos</figcaption></figure>
+<figure class="sk-zoom sk-reveal" style="margin: 0; border-radius: 6px; position: relative; aspect-ratio: 4 / 5"><img src="assets/real_bisel.jpg" alt="Foto real del bisel del Skyline" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.8)">El bisel</figcaption></figure>
+<figure class="sk-zoom sk-reveal" style="margin: 0; border-radius: 6px; position: relative; aspect-ratio: 4 / 5"><img src="assets/real_perfil.jpg" alt="Foto real del perfil de la caja con la corona" style="width: 100%; height: 100%; object-fit: cover; object-position: 58% 45%; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.8)">Perfil y corona</figcaption></figure>
+<figure class="sk-zoom sk-reveal" style="margin: 0; border-radius: 6px; position: relative; aspect-ratio: 4 / 5"><img src="assets/real_trasera.jpg" alt="Foto real de la parte trasera con el forro beige de la correa" style="width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; display: block"><figcaption style="position: absolute; left: 16px; bottom: 14px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; text-shadow: 0 1px 8px rgba(0,0,0,0.8)">Forro y trasera</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section id="spot" style="max-width: 1280px; margin: 0 auto; padding: 140px 32px; box-sizing: border-box">
+<div class="sk-reveal" style="text-align: center; max-width: 680px; margin: 0 auto 48px">
+<p style="margin: 0 0 14px; color: #c9b48a; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; font-weight: 600">El spot</p>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(40px, 4.6vw, 60px); line-height: 1.04">Un minuto con el Skyline</h2>
+</div>
+<div class="sk-reveal" style="border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #000000; box-shadow: 0 40px 120px rgba(0,0,0,0.6)">
+<video src="assets/spot.mp4" poster="assets/spot_poster.jpg" controls="controls" playsinline="playsinline" preload="metadata" style="width: 100%; height: 100%; display: block"></video>
+</div>
+</section>
+
+<section id="especificaciones" style="max-width: 1280px; margin: 0 auto; padding: 0 32px 140px; box-sizing: border-box">
+<div class="sk-reveal" style="border-top: 1px solid rgba(201,180,138,0.25); padding-top: 64px; display: flex; flex-wrap: wrap; gap: 48px">
+<h2 style="flex: 1 1 280px; margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.05">Especificaciones</h2>
+<dl style="flex: 2 1 560px; min-width: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 40px">
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Caja</dt><dd style="margin: 6px 0 0">Metálica y sólida, acabado plateado pulido</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Bisel</dt><dd style="margin: 6px 0 0">Deportivo negro, índices grabados 15 · 25 · 35 · 45 · 55</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Esfera</dt><dd style="margin: 6px 0 0">Satinada; verde, azul, negra, burdeos, champán o gris</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Funciones</dt><dd style="margin: 6px 0 0">Tres subesferas de cronógrafo y ventana de fecha</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Agujas</dt><dd style="margin: 6px 0 0">Tipo espada, metálicas, con tratamiento luminiscente</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Correa</dt><dd style="margin: 6px 0 0">Negra o marrón, pespunte en contraste y forro beige</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Cierre</dt><dd style="margin: 6px 0 0">Hebilla metálica</dd></div>
+<div><dt style="color: #a69d8b; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase">Precio</dt><dd style="margin: 6px 0 0">[PRECIO]</dd></div>
+</dl>
+</div>
+</section>
+
+<section style="position: relative; overflow: hidden; padding: 120px 32px; text-align: center; background: linear-gradient(180deg, #0f0e0c 0%, #1b1813 100%); border-top: 1px solid rgba(201,180,138,0.16)">
+<div class="sk-reveal">
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 8vw, 120px); letter-spacing: 0.24em; font-weight: 600; line-height: 1">SKYLINE</p>
+<div aria-hidden="true" style="width: 120px; height: 1px; background: #c9b48a; margin: 28px auto"></div>
+<p style="margin: 0 0 40px; color: #d9d1c1; font-size: 20px">Precisión en cada momento</p>
+<a class="sk-btn sk-gold" href="#coleccion" style="background-color: #c9b48a; color: #15130f; text-decoration: none; padding: 16px 34px; border-radius: 999px; font-weight: 600; font-size: 16px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Elige tu Skyline</a>
+</div>
+</section>
+
+<footer style="border-top: 1px solid rgba(201,180,138,0.14); padding: 32px">
+<div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: #a69d8b; font-size: 14px">
+<span>© 2026 Skyline. Todos los derechos reservados.</span>
+<span style="display: flex; flex-wrap: wrap; gap: 24px"><a href="#detalles" style="color: #a69d8b">Detalles</a><a href="#coleccion" style="color: #a69d8b">Colección</a><a href="#spot" style="color: #a69d8b">El spot</a></span>
+</div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+var M=[["verde", "Verde Militar", "Verde militar satinada", "Negra, forro beige", "El original. Sobrio, versátil y con carácter."], ["azul", "Azul Medianoche", "Azul medianoche satinada", "Negra, forro beige", "La elegancia de la noche, en la muñeca."], ["negro", "Negro Absoluto", "Negra satinada", "Negra, forro beige", "Total black. Discreto y contundente a la vez."], ["burdeos", "Burdeos", "Burdeos satinada", "Marrón, forro beige", "Un toque cálido para las ocasiones especiales."], ["vintage", "Champán Vintage", "Champán satinada", "Marrón claro, forro beige", "Inspiración clásica, con aire de otra época."], ["acero", "Gris Acero", "Gris acero satinada", "Negra, forro beige", "Neutro y técnico. Combina con todo."]];
+var imgs=[].slice.call(document.querySelectorAll('.sk-model'));
+var th=[].slice.call(document.querySelectorAll('.sk-thumb'));
+var cart=document.getElementById('m-cart');
+function set(id,t){document.getElementById(id).textContent=t}
+function pick(p){
+ imgs.forEach(function(el,i){el.classList.toggle('is-on',i===p);el.classList.toggle('is-before',i<p)});
+ th.forEach(function(el,i){el.classList.toggle('is-on',i===p);el.setAttribute('aria-pressed',i===p?'true':'false')});
+ var m=M[p]; set('m-num',p+1); set('m-name',m[1]); set('m-tag',m[4]); set('m-dial',m[2]); set('m-strap',m[3]);
+ cart.textContent='Añadir a la cesta';
+}
+th.forEach(function(el,i){el.addEventListener('click',function(){pick(i)})});
+cart.addEventListener('click',function(){cart.textContent='Añadido a la cesta'});
+pick(0);
+})();
+</script>
+</body>
+</html>
